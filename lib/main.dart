@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:running/screens/homeScreens.dart';
+import 'package:running/screens/loginScreen.dart';
+import 'package:running/screens/registerScreen.dart';
+import 'package:sqflite/sqflite.dart';
 
 void main() {
+  //sqfliteFfiInit();
+  //databaseFactory = DatabaseFactoryFfi;
   runApp(const MyApp());
 }
 
@@ -16,13 +21,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text ('Primeiros passos'),
-        ),
-        body: TreinoSemanalScreen()
-        
-      ),
+      routes: {
+        '/': (context) => const LoginScreen(),
+        '/home': (context) => TreinoSemanalScreen(),
+        '/register': (context) => const RegisterScreen(),
+      },
     );
   }
 }
